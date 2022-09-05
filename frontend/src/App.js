@@ -1,6 +1,6 @@
 import logo from "./dog-api-logo.svg";
 import "./App.css";
-import { Container, Drawer } from "@mui/material";
+import { Container } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 

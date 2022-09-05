@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
+import Dog from "./Dog/Dog";
 
 function Home() {
   const [dogUrl, setDogUrl] = useState("");
@@ -15,12 +16,7 @@ function Home() {
 
   return (
     <>
-      <h1>Home page</h1>
-      <div className="Home-wrapper">
-        {dogUrl && <img src={dogUrl} className="Home-dog-image" />}
-
-        <button className="Home-button">Get a new Dog!</button>
-      </div>
+      <Dog dog={dogUrl} />
     </>
   );
 }
