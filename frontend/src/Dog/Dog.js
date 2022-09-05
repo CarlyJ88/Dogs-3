@@ -5,8 +5,11 @@ function Dog(props) {
     <>
       <h1>Home page</h1>
       <div className="Dog-wrapper">
-        {props.dog && <img src={props.dog} className="Dog-image" />}
-        <button className="Home-button">Get a new Dog!</button>
+        {props.dog && <img src={props.dog} alt="a dog" className="Dog-image" />}
+        {/* include breed name on alt later */}
+        <button className="Home-button" onClick={props.changeDog}>
+          Get a new Dog!
+        </button>
       </div>
     </>
   );

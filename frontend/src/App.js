@@ -8,7 +8,7 @@ function App() {
   return (
     <Container sx={{ display: "flex", flexDirection: "column" }}>
       <div className="App-header">
-        <img src={logo} className="App-logo" />
+        <img src={logo} alt="logo" className="App-logo" />
       </div>
       <div>
         <Routes>
