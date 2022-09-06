@@ -1,0 +1,30 @@
+.Select-breed-wrapper {
+  display: flex;  
+}
+
+.breed-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.breed {
+  display: flex;
+  flex-direction: column;
+}
+
+.dog-breed {
+  display: flex;
+  padding: 5px;
+  font: 1.5em "Helvetica Ne";
+  text-align: center;
+}
+
+.dog-breed:hover {
+  background: rgba(219, 217, 222, 0.912)
+}
+
+.dog-breed.dog-breed-selected {
+  border-radius: 50px;
+  background: rgba(125, 154, 232, 0.556);
+}

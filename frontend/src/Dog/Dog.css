@@ -10,6 +10,6 @@
   justify-items: center;
   position: relative;
   height: 80vmin;
-  margin: auto;
+  margin: 0 auto;
   gap: 3rem;
 }

@@ -1,21 +1,41 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
 import Dog from "./Dog/Dog";
-import { getDogImageUrl } from "./util/getDogImageUrl";
+import { getDogImageUrl, getRandomDogFromBreed } from "./util/getDogImageUrl";
+import SelectBreed from "./Dog/SelectBreed";
 
 function Home() {
   const [dogUrl, setDogUrl] = useState("");
+  const [dogBreed, setDogBreed] = useState("");
 
   async function changeDog() {
-    const newDog = await getDogImageUrl(); // add error handling
-    setDogUrl(newDog);
+    if (dogBreed !== "") {
+      const newDogUrl = await getRandomDogFromBreed(dogBreed);
+      setDogUrl(newDogUrl);
+    } else {
+      const newDogUrl = await getDogImageUrl();
+      setDogUrl(newDogUrl);
+    }
+  }
+
+  function breedChangeHandler(breed) {
+    setDogBreed(breed);
   }
 
   useEffect(() => {
     changeDog();
-  }, []);
+  }, [dogBreed]);
 
-  return <Dog dog={dogUrl} changeDog={changeDog} />;
+  return (
+    <>
+      <h1>Woof!</h1>
+      <div className="wrapper">
+        <SelectBreed breedChangeHandler={breedChangeHandler} />
+        {/* display sub-breed on top of image? */}
+        <Dog dog={dogUrl} changeDog={changeDog} />
+      </div>
+    </>
+  );
 }
 
 export default Home;

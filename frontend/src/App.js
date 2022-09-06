@@ -6,7 +6,7 @@ import Home from "./Home";
 
 function App() {
   return (
-    <Container sx={{ display: "flex", flexDirection: "column" }}>
+    <Container sx={{ display: "flex", flexDirection: "column", margin: "0" }}>
       <div className="App-header">
         <img src={logo} alt="logo" className="App-logo" />
       </div>
