@@ -1,0 +1,18 @@
+.Favourite-button {
+  all: unset;
+  cursor: pointer;
+  padding: 5px;
+  align-self: flex-end;
+}
+
+.Favourite-wrapper,.Favourite-wrapper-selected  {
+  width: 24px;
+}
+
+.Favourite-wrapper >.innerElement {
+  fill: #fff;
+}
+
+.Favourite-wrapper-selected >.innerElement, .Favourite-wrapper-selected >.outerElement  {
+  fill: red;
+}

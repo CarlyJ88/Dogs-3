@@ -1,4 +1,4 @@
-import logo from "./dog-api-logo.svg";
+import logo from "./icons/dog-api-logo.svg";
 import "./App.css";
 import { Container } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
