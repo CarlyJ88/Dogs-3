@@ -20,4 +20,10 @@ describe("Dog", () => {
     fireEvent.click(screen.getByText("Get a new Dog!"));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  it("has favourite icon", () => {
+    render(<Dog dog={undefined} />);
+
+    expect(screen.getByTitle("Favourite Icon")).toBeInTheDocument();
+  });
 });
