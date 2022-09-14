@@ -1,0 +1,14 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "password",
+    "database": "dogs"
+  },
+  "test": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "password",
+    "database": "dogs_test"
+  }
+}

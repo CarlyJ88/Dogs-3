@@ -1,0 +1,7 @@
+CREATE EXTENSION IF NOT EXISTS citext;
+
+CREATE TABLE favourite_dogs(
+  id SERIAL PRIMARY KEY,
+  dog CITEXT NOT NULL,
+  user_id TEXT NOT NULL
+);
