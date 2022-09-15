@@ -15,6 +15,13 @@ router.post("/favourites/add-dog", async function (req, res, next) {
   } else res.status(200).send('dog aleady exists');
 });
 
+router.delete('/favourites/delete-dog', async(req, res) => {
+  const dog = req.body.dog;
+  const userId = req.body.userId;
+  const passBack = await deleteDog(dog, userId);
+  res.json(passBack)
+})
+
 router.get("/favorites", function (req, res, next) {
   // GET my favorite dogs. Might need an authentication middleware
 });

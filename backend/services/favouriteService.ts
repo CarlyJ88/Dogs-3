@@ -28,3 +28,7 @@ export async function checkFavouriteDogs(incomingDog: string, incomingUserId: st
   );
   return !!favourite.rows.length;
 }
+
+export async function deleteDog(dog: string, userId: string): Promise<void> {
+  await executeQuery('DELETE FROM favourite_dogs WHERE dog = $1 AND user_id = $2', [dog, userId]);
+}
