@@ -32,3 +32,8 @@ export async function checkFavouriteDogs(incomingDog: string, incomingUserId: st
 export async function deleteDog(dog: string, userId: string): Promise<void> {
   await executeQuery('DELETE FROM favourite_dogs WHERE dog = $1 AND user_id = $2', [dog, userId]);
 }
+
+export async function listUsersFavouriteDogs(userId: string): Promise<FavouriteDogs[]> {
+  const dogs = await executeQuery('SELECT * FROM favourite_dogs where user_id = $1', [userId]);
+  return dogs.rows.map((row: any) => ({ id: row.id, dog: row.dog, userId: row.user_id }))
+}

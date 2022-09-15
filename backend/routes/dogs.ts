@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-import { addDogToFavourites, checkFavouriteDogs, deleteDog } from "../services/favouriteService";
+import { addDogToFavourites, checkFavouriteDogs, deleteDog, listUsersFavouriteDogs } from "../services/favouriteService";
 
 router.get("/", function (req, res, next) {
   // GET the dogs
@@ -15,14 +15,17 @@ router.post("/favourites/add-dog", async function (req, res, next) {
   } else res.status(200).send('dog aleady exists');
 });
 
-router.delete('/favourites/delete-dog', async(req, res) => {
+router.delete('/favourites/delete-dog', async function(req, res) {
   const dog = req.body.dog;
   const userId = req.body.userId;
   const passBack = await deleteDog(dog, userId);
   res.json(passBack)
 })
 
-router.get("/favorites", function (req, res, next) {
+router.get("/favourites", async function (req, res, next) {
+  const userId = req.body.userId;
+  const passBack = await listUsersFavouriteDogs(userId);
+  res.json(passBack)
   // GET my favorite dogs. Might need an authentication middleware
 });
 
