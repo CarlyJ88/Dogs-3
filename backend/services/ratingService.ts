@@ -30,3 +30,11 @@ export async function checkDogRating(incomingDog: string, incomingUserId: string
   );
   return !!rating.rows.length;
 }
+
+export async function dogsOverallRating(incomingDog: string): Promise<any> {
+  const rating = await executeQuery(
+    "select AVG(score) from rate_dogs where dog = $1",
+    [incomingDog]
+  );
+  return rating.rows;
+}

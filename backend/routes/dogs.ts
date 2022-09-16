@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 import { addDogToFavourites, checkFavouriteDogs, deleteDog, listUsersFavouriteDogs } from "../services/favouriteService";
-import { addDogToRatings, checkDogRating } from "../services/ratingService";
+import { addDogToRatings, checkDogRating, dogsOverallRating } from "../services/ratingService";
 
 router.get("/", function (req, res, next) {
   // GET the dogs
@@ -33,8 +33,10 @@ router.get("/ratings/add-dog", async function (req, res, next) {
   // authentication middleware?
 });
 
-router.post("/favorites", function (req, res, next) {
-  // ADD a dog to my favorites. Might need an authentication middleware
+router.get("/rating", async function (req, res, next) {
+  const dog = req.body.dog;
+  const passBack = await dogsOverallRating(dog);
+  res.json(passBack);
 });
 
 module.exports = router;
