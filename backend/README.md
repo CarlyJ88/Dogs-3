@@ -8,11 +8,11 @@ In order to get you started we created to route and model for dogs. Feel free to
 To complete this test, you will need to complete the following tasks:
 
 1. [x] Create an Endpoint to add a dog to a user **favorite**
-2. [ ] Create an Endpoint to add a rating to a dog.
+2. [x] Create an Endpoint to add a rating to a dog.
 3. [ ] Create an Endpoint that returns a dog rating.
 4. [ ] Create an Endpoint that returns all the dogs that have been rated.
-5. [ ] Create an Endpoint that returns all the favorite dog of an user.
-6. [ ] Create an Endpoint that remove a dog from favorites.
+5. [x] Create an Endpoint that returns all the favorite dog of an user.
+6. [x] Create an Endpoint that remove a dog from favorites.
 
 ### Bonus tasks
 
