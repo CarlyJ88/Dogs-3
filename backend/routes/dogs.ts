@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 import { addDogToFavourites, checkFavouriteDogs, deleteDog, listUsersFavouriteDogs } from "../services/favouriteService";
-import { addDogToRatings, checkDogRating, dogsOverallRating } from "../services/ratingService";
+import { addDogToRatings, checkDogRating, dogsOverallRating, orderDogsByRating } from "../services/ratingService";
 
 router.get("/", function (req, res, next) {
   // GET the dogs
@@ -36,6 +36,12 @@ router.get("/ratings/add-dog", async function (req, res, next) {
 router.get("/rating", async function (req, res, next) {
   const dog = req.body.dog;
   const passBack = await dogsOverallRating(dog);
+  res.json(passBack);
+});
+
+router.get("/rating/order", async function (req, res, next) {
+  const sortDogBy = req.body.sortDogBy;
+  const passBack = await orderDogsByRating(sortDogBy);
   res.json(passBack);
 });
 

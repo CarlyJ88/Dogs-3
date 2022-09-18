@@ -38,3 +38,17 @@ export async function dogsOverallRating(incomingDog: string): Promise<any> {
   );
   return rating.rows;
 }
+
+export async function orderDogsByRating(sortDogBy: string): Promise<RateDogs[]> {
+  let query;
+  if (sortDogBy === 'asc') {
+    query = "select * from rate_dogs order by score asc"
+  } else {
+    query = "select * from rate_dogs order by score desc"
+  }
+  const rating = await executeQuery(
+    query,
+    []
+  );
+  return rating.rows;
+}
