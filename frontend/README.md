@@ -9,7 +9,7 @@ You are free to use a different design system or a different Frontend framework 
 # Exercise:
 
 1. [x] Get and display the list of breeds available on dog.ceo api
-2. [ ] View a random dog from a specific breed from dog.ceo api
+2. [x] View a random dog from a specific breed from dog.ceo api
 3. [ ] Add a rating to a dog
 4. [ ] View a dog existing overall rating (this will be the average rating from all the users for this dog)
 5. [ ] Add a dog to favorite

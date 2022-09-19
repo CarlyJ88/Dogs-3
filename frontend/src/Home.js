@@ -32,7 +32,6 @@ function Home() {
       <h1>Woof!</h1>
       <div className="wrapper">
         <SelectBreed breedChangeHandler={breedChangeHandler} />
-        {/* display sub-breed on top of image? */}
         <Dog dog={dogUrl} changeDog={changeDog} />
       </div>
     </>
