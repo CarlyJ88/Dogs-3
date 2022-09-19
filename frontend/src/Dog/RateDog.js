@@ -3,7 +3,7 @@ import "./RateDog.css";
 
 function RateDog(props) {
   return (
-    <button className="Rate-button">
+    <button className="Rate-button" onClick={() => props.onClick(props.score)}>
       <Rate
         title="Rate Icon"
         className={props.rate ? "Rate-wrapper-selected" : "Rate-wrapper"}

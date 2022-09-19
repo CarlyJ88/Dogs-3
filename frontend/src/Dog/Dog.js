@@ -1,22 +1,33 @@
 import "./Dog.css";
 import Favourites from "./Favourites";
 import DogScore from "./DogScore";
-import { getRating } from "../services/service";
+import { getRating, getOverallRating } from "../services/service";
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../services/firebase";
+import OverallScore from "./OverallScore";
 
 function Dog(props) {
   const [score, setScore] = useState("");
   const [user] = useAuthState(auth);
+  const [overallRating, setOverallRating] = useState("");
 
   useEffect(() => {
     async function becauseIhaveTo() {
       const rating = await getRating(props.dog, user?.uid);
+      console.log("hi in useEffect");
       setScore(rating.data);
+      // const overallRating = await getOverallRating(props.dog);
+      // setOverallRating(overallRating);
+      setOverallRating(5);
     }
     becauseIhaveTo();
   }, []);
+
+  function onScoreChange(score) {
+    console.log(score, "score in dog");
+    setScore(score);
+  }
 
   return (
     <>
@@ -32,7 +43,12 @@ function Dog(props) {
             Get a new Dog!
           </button>
         </div>
-        <DogScore score={score} />
+        <DogScore
+          score={score}
+          overallRating={overallRating}
+          onScoreChange={onScoreChange}
+        />
+        <OverallScore score={overallRating} />
       </div>
     </>
   );

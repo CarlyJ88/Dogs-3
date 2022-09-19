@@ -52,3 +52,11 @@ export async function orderDogsByRating(sortDogBy: string): Promise<RateDogs[]> 
   );
   return rating.rows;
 }
+
+export async function usersDogRating(incomingDog: string, incomingUserId: string): Promise<number> {
+  const rating = await executeQuery(
+    "select score from rate_dogs where dog = $1 AND user_id = $2",
+    [incomingDog, incomingUserId]
+  );
+  return rating.rows[0]?.score;
+}
