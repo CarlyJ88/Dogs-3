@@ -10,10 +10,10 @@ interface RateDogsSaved extends RateDogs {
   id: number;
 }
 
-export async function addDogToRatings(dog: RateDogs): Promise<RateDogsSaved> {
+export async function addDogToRatings(dog: string, userId: string, score: number): Promise<RateDogsSaved> {
   const rating = await executeQuery(
     "INSERT INTO rate_dogs(dog, user_id, score) VALUES($1, $2, $3) RETURNING *",
-    [dog.dog, dog.userId, dog.score]
+    [dog, userId, score]
   );
   return {
     id: rating.rows[0].id,

@@ -1,7 +1,7 @@
 import "./Dog.css";
 import Favourites from "./Favourites";
 import DogScore from "./DogScore";
-import { getRating, getOverallRating } from "../services/service";
+import { getRating, getOverallRating, addRating } from "../services/service";
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../services/firebase";
@@ -25,7 +25,7 @@ function Dog(props) {
   }, []);
 
   function onScoreChange(score) {
-    console.log(score, "score in dog");
+    addRating(props.dog, user?.uid, score);
     setScore(score);
   }
 

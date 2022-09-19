@@ -25,3 +25,11 @@ export function getOverallRating(dog) {
 export function getFavouriteDogs() {
   return axios.get(`http://localhost:4000/dogs/favourites`).then((res) => res);
 }
+
+export function addRating(dog, userId, score) {
+  return axios.post(`http://localhost:4000/dogs/ratings/add-dog`, {
+    dog: dog,
+    userId: userId,
+    score: score,
+  });
+}

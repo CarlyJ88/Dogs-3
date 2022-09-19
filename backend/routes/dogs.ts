@@ -25,11 +25,11 @@ router.delete('/favourites/delete-dog', async function(req, res) {
   res.json(passBack)
 })
 
-router.get("/ratings/add-dog", async function (req, res, next) {
+router.post("/ratings/add-dog", async function (req, res, next) {
   const dog = req.body;
   const doesDogExist = await checkDogRating(dog.dog, dog.userId);
   if (!doesDogExist) {
-    const passBack = await addDogToRatings(dog);
+    const passBack = await addDogToRatings(dog.dog, dog.userId, dog.score);
     res.json(passBack);
   } else res.status(200).send('dog has aleady been rated');
   // authentication middleware?
