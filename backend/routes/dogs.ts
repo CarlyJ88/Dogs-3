@@ -3,8 +3,10 @@ var router = express.Router();
 import { addDogToFavourites, checkFavouriteDogs, deleteDog, listUsersFavouriteDogs } from "../services/favouriteService";
 import { addDogToRatings, checkDogRating, dogsOverallRating, orderDogsByRating } from "../services/ratingService";
 
-router.get("/", function (req, res, next) {
-  // GET the dogs
+router.get("/favourites", async function (req, res, next) {
+  const userId = req.body.userId;
+  const passBack = await listUsersFavouriteDogs(userId);
+  res.json(passBack)
 });
 
 router.post("/favourites/add-dog", async function (req, res, next) {
