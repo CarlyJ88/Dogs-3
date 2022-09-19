@@ -1,5 +1,6 @@
 import "./Dog.css";
 import Favourites from "./Favourites";
+import DogScore from "./ DogScore";
 
 function Dog(props) {
   return (
@@ -17,6 +18,7 @@ function Dog(props) {
             Get a new Dog!
           </button>
         </div>
+        <DogScore score={3} />
       </div>
     </>
   );

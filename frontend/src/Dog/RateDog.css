@@ -1,0 +1,15 @@
+.Rate-wrapper  {
+  width: 24px;
+  fill: #fff;
+}
+
+.Rate-wrapper-selected  {
+  width: 24px;
+  fill: blue;
+}
+
+.Rate-button {
+  all: unset;
+  cursor: pointer;
+  padding: 5px;
+}
