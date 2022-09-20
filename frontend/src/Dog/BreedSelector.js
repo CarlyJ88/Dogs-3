@@ -4,7 +4,6 @@ import Breeds from "./Breeds";
 
 function BreedSelector(props) {
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState(""); // move this out...
 
   async function availableBreeds() {
     const newBreed = await getDogBreeds(); // add error handling
@@ -12,8 +11,7 @@ function BreedSelector(props) {
     setBreeds(breedNames);
   }
 
-  function selectBreed(breed) {
-    setSelectedBreed(breed);
+  function selectBreedHandler(breed) {
     props.onBreedChange(breed);
   }
 
@@ -24,8 +22,8 @@ function BreedSelector(props) {
   return (
     <Breeds
       breeds={breeds}
-      selectBreed={selectBreed}
-      selectedBreed={selectedBreed}
+      onSelectBreed={selectBreedHandler}
+      selectedBreed={props.selectedBreed}
     />
   );
 }

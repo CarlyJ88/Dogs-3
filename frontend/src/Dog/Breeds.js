@@ -13,7 +13,7 @@ function Breeds(props) {
                 : "dog-breed"
             }
             onClick={() => {
-              props.selectBreed(breed);
+              props.onSelectBreed(breed);
             }}
           >
             {breed}

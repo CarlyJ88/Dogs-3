@@ -22,6 +22,11 @@ function Home() {
     setDogBreed(breed);
   }
 
+  // function selectBreed(breed) {
+  //   setSelectedBreed(breed);
+  //   props.onBreedChange(breed);
+  // }
+
   useEffect(() => {
     changeDog();
   }, [dogBreed]);
@@ -30,7 +35,10 @@ function Home() {
     <>
       <h1>Woof!</h1>
       <div className="wrapper">
-        <BreedSelector onBreedChange={breedChangeHandler} />
+        <BreedSelector
+          onBreedChange={breedChangeHandler}
+          selectedBreed={dogBreed}
+        />
         <Dog dogUrl={dogUrl} onChangeDog={changeDog} />
       </div>
     </>
