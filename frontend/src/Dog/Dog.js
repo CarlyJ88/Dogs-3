@@ -14,16 +14,16 @@ function Dog(props) {
 
   useEffect(() => {
     async function callBack() {
-      const rating = await getRating(props.dog, user?.uid);
+      const rating = await getRating(props.dogUrl, user?.uid);
       setScore(rating);
-      const overallRating = await getOverallRating(props.dog);
+      const overallRating = await getOverallRating(props.dogUrl);
       setOverallRating(Math.round(overallRating).toFixed(1));
     }
     callBack();
-  }, [user?.uid, props.dog]);
+  }, [user?.uid, props.dogUrl]);
 
   function onScoreChange(score) {
-    addRating(props.dog, user?.uid, score);
+    addRating(props.dogUrl, user?.uid, score);
     setScore(score);
   }
 
@@ -32,8 +32,8 @@ function Dog(props) {
       <div className="Dog-wrapper">
         <div className="Image-wrapper">
           <Favourites favourite={true} />
-          {props.dog && (
-            <img src={props.dog} alt="a dog" className="Dog-image" />
+          {props.dogUrl && (
+            <img src={props.dogUrl} alt="a dog" className="Dog-image" />
           )}
         </div>
         <div className="Button-wrapper">
