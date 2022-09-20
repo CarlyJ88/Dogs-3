@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 import Dog from "./Dog/Dog";
 import { getDogImageUrl, getRandomDogFromBreed } from "./util/getDogImageUrl";
-import SelectBreed from "./Dog/SelectBreed";
+import BreedSelector from "./Dog/BreedSelector";
 
 function Home() {
   const [dogUrl, setDogUrl] = useState("");
@@ -30,7 +30,7 @@ function Home() {
     <>
       <h1>Woof!</h1>
       <div className="wrapper">
-        <SelectBreed onBreedChange={breedChangeHandler} />
+        <BreedSelector onBreedChange={breedChangeHandler} />
         <Dog dogUrl={dogUrl} onChangeDog={changeDog} />
       </div>
     </>

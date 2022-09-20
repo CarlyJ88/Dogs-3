@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SelectBreed from "./SelectBreed";
+import BreedSelector from "./BreedSelector";
 import userEvent from "@testing-library/user-event";
 import { getDogBreeds } from "../util/getDogImageUrl";
 
@@ -15,7 +15,7 @@ describe("select breed", () => {
   });
 
   it("breed is not in selected state when not selected", async () => {
-    render(<SelectBreed onBreedChange={() => {}} />);
+    render(<BreedSelector onBreedChange={() => {}} />);
 
     expect(await screen.findByText("terrier")).toHaveClass("dog-breed");
     expect(await screen.findByText("terrier")).not.toHaveClass(
@@ -24,7 +24,7 @@ describe("select breed", () => {
   });
 
   it("breed is hghlighted when selected", async () => {
-    render(<SelectBreed onBreedChange={() => {}} />);
+    render(<BreedSelector onBreedChange={() => {}} />);
     userEvent.click(await screen.findByText("terrier"));
     expect(await screen.findByText("terrier")).toHaveClass(
       "dog-breed-selected"
@@ -36,7 +36,7 @@ describe("select breed", () => {
 
   it("calls with selected breed", async () => {
     const handleClick = jest.fn();
-    render(<SelectBreed onBreedChange={handleClick} />);
+    render(<BreedSelector onBreedChange={handleClick} />);
     userEvent.click(await screen.findByText("terrier"));
 
     expect(handleClick).toHaveBeenCalledWith("terrier");
