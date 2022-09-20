@@ -13,16 +13,15 @@ function Dog(props) {
   const [overallRating, setOverallRating] = useState("");
 
   useEffect(() => {
-    async function becauseIhaveTo() {
+    async function callBack() {
       const rating = await getRating(props.dog, user?.uid);
-      console.log("hi in useEffect");
       setScore(rating.data);
-      // const overallRating = await getOverallRating(props.dog);
-      // setOverallRating(overallRating);
+      const overallRating = await getOverallRating(props.dog);
+      setOverallRating(overallRating);
       setOverallRating(5);
     }
-    becauseIhaveTo();
-  }, []);
+    callBack();
+  }, [user?.uid, props.dog]);
 
   function onScoreChange(score) {
     addRating(props.dog, user?.uid, score);

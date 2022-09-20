@@ -17,7 +17,7 @@ export function getOverallRating(dog) {
       dog: "https://images.dog.ceo/breeds/border-terrier/Zak.jpg",
     })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       return res;
     });
 }
