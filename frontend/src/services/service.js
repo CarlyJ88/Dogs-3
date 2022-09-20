@@ -8,23 +8,26 @@ export function getRating(dog, userId) {
         userId: userId,
       },
     })
-    .then((res) => res);
+    .then((res) => res.data);
 }
 
 export function getOverallRating(dog) {
+  console.log(dog, "dog");
   return axios
     .get(`http://localhost:4000/dogs/rating`, {
-      dog: "https://images.dog.ceo/breeds/border-terrier/Zak.jpg",
+      params: {
+        // dog: "https://images.dog.ceo/breeds/border-terrier/Zak.jpg",
+        dog,
+      },
     })
     .then((res) => {
-      // console.log(res);
-      return res;
+      return res.data;
     });
 }
 
-export function getFavouriteDogs() {
-  return axios.get(`http://localhost:4000/dogs/favourites`).then((res) => res);
-}
+// export function getFavouriteDogs() {
+//   return axios.get(`http://localhost:4000/dogs/favourites`).then((res) => res);
+// }
 
 export function addRating(dog, userId, score) {
   return axios.post(`http://localhost:4000/dogs/ratings/add-dog`, {

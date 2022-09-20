@@ -8,6 +8,7 @@ import {
 } from "./util/getDogImageUrl";
 
 jest.mock("./util/getDogImageUrl");
+jest.mock("./services/service");
 
 describe("Home", () => {
   beforeEach(() => {
@@ -60,7 +61,7 @@ describe("Home", () => {
     );
   });
 
-  it("Correct breed image is displayed", async () => {
+  it("Correct breed image is displayed 2", async () => {
     getDogImageUrl.mockResolvedValue(
       "https://images.dog.ceo/breeds/terrier-american/n02093428_1482.jpg"
     );

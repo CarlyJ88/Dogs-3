@@ -10,7 +10,11 @@ interface RateDogsSaved extends RateDogs {
   id: number;
 }
 
-export async function addDogToRatings(dog: string, userId: string, score: number): Promise<RateDogsSaved> {
+export async function addDogToRatings(
+  dog: string,
+  userId: string,
+  score: number
+): Promise<RateDogsSaved> {
   const rating = await executeQuery(
     "INSERT INTO rate_dogs(dog, user_id, score) VALUES($1, $2, $3) RETURNING *",
     [dog, userId, score]
@@ -19,11 +23,14 @@ export async function addDogToRatings(dog: string, userId: string, score: number
     id: rating.rows[0].id,
     dog: rating.rows[0].dog,
     userId: rating.rows[0].user_id,
-    score: rating.rows[0].score
+    score: rating.rows[0].score,
   };
 }
 
-export async function checkDogRating(incomingDog: string, incomingUserId: string): Promise<boolean> {
+export async function checkDogRating(
+  incomingDog: string,
+  incomingUserId: string
+): Promise<boolean> {
   const rating = await executeQuery(
     "select * from rate_dogs where dog = $1 AND user_id = $2",
     [incomingDog, incomingUserId]
@@ -31,29 +38,31 @@ export async function checkDogRating(incomingDog: string, incomingUserId: string
   return !!rating.rows.length;
 }
 
-export async function dogsOverallRating(incomingDog: string): Promise<any> {
+export async function dogsOverallRating(incomingDog: string): Promise<number> {
   const rating = await executeQuery(
-    "select AVG(score) from rate_dogs where dog = $1",
+    "select AVG(score) as score from rate_dogs where dog = $1",
     [incomingDog]
   );
-  return rating.rows;
+  return rating.rows[0]?.score;
 }
 
-export async function orderDogsByRating(sortDogBy: string): Promise<RateDogs[]> {
+export async function orderDogsByRating(
+  sortDogBy: string
+): Promise<RateDogs[]> {
   let query;
-  if (sortDogBy === 'asc') {
-    query = "select * from rate_dogs order by score asc"
+  if (sortDogBy === "asc") {
+    query = "select * from rate_dogs order by score asc";
   } else {
-    query = "select * from rate_dogs order by score desc"
+    query = "select * from rate_dogs order by score desc";
   }
-  const rating = await executeQuery(
-    query,
-    []
-  );
+  const rating = await executeQuery(query, []);
   return rating.rows;
 }
 
-export async function usersDogRating(incomingDog: string, incomingUserId: string): Promise<number> {
+export async function usersDogRating(
+  incomingDog: string,
+  incomingUserId: string
+): Promise<number> {
   const rating = await executeQuery(
     "select score from rate_dogs where dog = $1 AND user_id = $2",
     [incomingDog, incomingUserId]

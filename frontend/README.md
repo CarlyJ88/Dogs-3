@@ -10,8 +10,8 @@ You are free to use a different design system or a different Frontend framework 
 
 1. [x] Get and display the list of breeds available on dog.ceo api
 2. [x] View a random dog from a specific breed from dog.ceo api
-3. [ ] Add a rating to a dog
-4. [ ] View a dog existing overall rating (this will be the average rating from all the users for this dog)
+3. [x] Add a rating to a dog
+4. [x] View a dog existing overall rating (this will be the average rating from all the users for this dog)
 5. [ ] Add a dog to favorite
 6. [ ] View all the favorite dog from a user
 7. [ ] Ability to sort/filter dogs based on a rating (this might need some backend work as well)

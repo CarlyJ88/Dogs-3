@@ -3,16 +3,16 @@ import {
   getDogBreeds,
   getRandomDogFromBreed,
 } from "./getDogImageUrl";
+import * as axios from "axios";
 
-global.fetch = jest.fn();
+jest.mock("axios");
 
 test("fetch dog", async () => {
-  fetch.mockResolvedValue({
-    json: () =>
-      Promise.resolve({
-        message:
-          "https://images.dog.ceo/breeds/terrier-american/n02093428_1482.jpg",
-      }),
+  axios.get.mockResolvedValue({
+    data: {
+      message:
+        "https://images.dog.ceo/breeds/terrier-american/n02093428_1482.jpg",
+    },
   });
 
   expect(await getDogImageUrl()).toEqual(
@@ -21,15 +21,14 @@ test("fetch dog", async () => {
 });
 // check it
 test("fetch breeds", async () => {
-  fetch.mockResolvedValue({
-    json: () =>
-      Promise.resolve({
-        message: {
-          husky: [],
-          sheepdog: ["english", "shetland"],
-          terrier: [],
-        },
-      }),
+  axios.get.mockResolvedValue({
+    data: {
+      message: {
+        husky: [],
+        sheepdog: ["english", "shetland"],
+        terrier: [],
+      },
+    },
   });
   // check it
   expect(await getDogBreeds()).toEqual({
@@ -40,12 +39,10 @@ test("fetch breeds", async () => {
 });
 
 test("fetch random dog from breed", async () => {
-  fetch.mockResolvedValue({
-    json: () =>
-      Promise.resolve({
-        message:
-          "https://images.dog.ceo/breeds/terrier-border/n02093754_367.jpg",
-      }),
+  axios.get.mockResolvedValue({
+    data: {
+      message: "https://images.dog.ceo/breeds/terrier-border/n02093754_367.jpg",
+    },
   });
 
   const breed = "terrier";

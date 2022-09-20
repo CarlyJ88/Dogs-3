@@ -15,10 +15,9 @@ function Dog(props) {
   useEffect(() => {
     async function callBack() {
       const rating = await getRating(props.dog, user?.uid);
-      setScore(rating.data);
+      setScore(rating);
       const overallRating = await getOverallRating(props.dog);
-      setOverallRating(overallRating);
-      setOverallRating(5);
+      setOverallRating(Math.round(overallRating).toFixed(1));
     }
     callBack();
   }, [user?.uid, props.dog]);

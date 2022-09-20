@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function SelectBreed(props) {
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState("");
+  const [selectedBreed, setSelectedBreed] = useState(""); // move this out...
 
   async function availableBreeds() {
     const newBreed = await getDogBreeds(); // add error handling
