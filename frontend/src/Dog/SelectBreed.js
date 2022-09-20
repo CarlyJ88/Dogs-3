@@ -13,7 +13,7 @@ function SelectBreed(props) {
 
   function selectBreed(breed) {
     setSelectedBreed(breed);
-    props.breedChangeHandler(breed);
+    props.onBreedChange(breed);
   }
 
   useEffect(() => {

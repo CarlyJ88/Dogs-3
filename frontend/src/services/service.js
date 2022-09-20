@@ -12,7 +12,6 @@ export function getRating(dog, userId) {
 }
 
 export function getOverallRating(dog) {
-  console.log(dog, "dog");
   return axios
     .get(`http://localhost:4000/dogs/rating`, {
       params: {

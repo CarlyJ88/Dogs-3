@@ -14,10 +14,10 @@ function Dog(props) {
 
   useEffect(() => {
     async function callBack() {
-      const rating = await getRating(props.dogUrl, user?.uid);
-      setScore(rating);
-      const overallRating = await getOverallRating(props.dogUrl);
-      setOverallRating(Math.round(overallRating).toFixed(1));
+      const score = await getRating(props.dogUrl, user?.uid);
+      setScore(score);
+      const rating = await getOverallRating(props.dogUrl);
+      setOverallRating(Number(rating));
     }
     callBack();
   }, [user?.uid, props.dogUrl]);
@@ -37,7 +37,7 @@ function Dog(props) {
           )}
         </div>
         <div className="Button-wrapper">
-          <button className="Home-button" onClick={props.changeDog}>
+          <button className="Home-button" onClick={props.onChangeDog}>
             Get a new Dog!
           </button>
         </div>

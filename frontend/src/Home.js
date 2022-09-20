@@ -30,8 +30,8 @@ function Home() {
     <>
       <h1>Woof!</h1>
       <div className="wrapper">
-        <SelectBreed breedChangeHandler={breedChangeHandler} />
-        <Dog dogUrl={dogUrl} changeDog={changeDog} />
+        <SelectBreed onBreedChange={breedChangeHandler} />
+        <Dog dogUrl={dogUrl} onChangeDog={changeDog} />
       </div>
     </>
   );
