@@ -1,5 +1,5 @@
 import "./Dog.css";
-import Favourites from "./Favourites";
+import Favourite from "./Favourite";
 import DogScore from "./DogScore";
 import { getRating, getOverallRating, addRating } from "../services/service";
 import { useState, useEffect } from "react";
@@ -8,9 +8,9 @@ import { auth } from "../services/firebase";
 import OverallScore from "./OverallScore";
 
 function Dog(props) {
-  const [score, setScore] = useState("");
+  const [score, setScore] = useState(0);
   const [user] = useAuthState(auth);
-  const [overallRating, setOverallRating] = useState("");
+  const [overallRating, setOverallRating] = useState(0);
 
   useEffect(() => {
     async function callBack() {
@@ -31,7 +31,7 @@ function Dog(props) {
     <>
       <div className="Dog-wrapper">
         <div className="Image-wrapper">
-          <Favourites favourite={true} />
+          <Favourite favourite={true} />
           {props.dogUrl && (
             <img src={props.dogUrl} alt="a dog" className="Dog-image" />
           )}

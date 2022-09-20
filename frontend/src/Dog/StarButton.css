@@ -1,14 +1,14 @@
-.Rate-wrapper  {
+.Star-wrapper  {
   width: 24px;
   fill: #fff;
 }
 
-.Rate-wrapper-selected  {
+.Star-wrapper-selected  {
   width: 24px;
   fill: blue;
 }
 
-.Rate-button {
+.Star-button {
   all: unset;
   cursor: pointer;
   padding: 5px;

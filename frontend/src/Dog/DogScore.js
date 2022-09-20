@@ -1,7 +1,7 @@
-import RateDog from "./RateDog";
+import StarButton from "./StarButton";
 
 function DogScore(props) {
-  function onScoreChange(score) {
+  function scoreChangeHandler(score) {
     props.onScoreChange(score);
   }
   const arr = [0, 1, 2, 3, 4];
@@ -9,11 +9,11 @@ function DogScore(props) {
     <>
       <p>My rating:</p>
       {arr.map((starIndex) => (
-        <RateDog
+        <StarButton
           key={starIndex}
           rate={props.score > starIndex}
           score={starIndex + 1}
-          onClick={onScoreChange}
+          onClick={scoreChangeHandler}
         />
       ))}
     </>

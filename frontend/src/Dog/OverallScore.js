@@ -1,6 +1,5 @@
 function OverallScore(props) {
-  return <div>Overall rating: {props.score}</div>; // ? instead of number
+  return <div>Overall rating: {props.score?.toFixed(1)}</div>;
 }
 
 export default OverallScore;
-// ?.toFixed(1)

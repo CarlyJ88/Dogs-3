@@ -1,11 +1,11 @@
-import { ReactComponent as Favourite } from "../icons/favourite-icon.svg";
+import { ReactComponent as Heart } from "../icons/heart-icon.svg";
 import "./Favourite.css";
 
-function Favourites(props) {
+function Favourite(props) {
   return (
     <button role="button" className="Favourite-button">
-      <Favourite
-        title="Favourite Icon"
+      <Heart
+        title="Heart Icon"
         className={
           props.favourite ? "Favourite-wrapper-selected" : "Favourite-wrapper"
         }
@@ -14,4 +14,4 @@ function Favourites(props) {
   );
 }
 
-export default Favourites;
+export default Favourite;

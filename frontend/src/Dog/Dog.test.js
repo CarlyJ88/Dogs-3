@@ -26,12 +26,12 @@ describe("Dog", () => {
   it("has favourite icon", () => {
     render(<Dog dogUrl={undefined} />);
 
-    expect(screen.getByTitle("Favourite Icon")).toBeInTheDocument();
+    expect(screen.getByTitle("Heart Icon")).toBeInTheDocument();
   });
 
-  // it("has rate icon", () => {
-  //   render(<Dog dog={undefined} />);
+  it("has rate icon", () => {
+    render(<Dog dogUrl={undefined} />);
 
-  //   expect(screen.getByTitle("Rate Icon")).toBeInTheDocument();
-  // });
+    expect(screen.getAllByTitle("Star Icon")).toHaveLength(5);
+  });
 });
