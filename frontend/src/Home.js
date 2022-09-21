@@ -22,11 +22,6 @@ function Home() {
     setDogBreed(breed);
   }
 
-  // function selectBreed(breed) {
-  //   setSelectedBreed(breed);
-  //   props.onBreedChange(breed);
-  // }
-
   useEffect(() => {
     changeDog();
   }, [dogBreed]);
