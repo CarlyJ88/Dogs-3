@@ -21,8 +21,6 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/breeds/:breed" element={<SelectBreed />} /> */}
         </Routes>
         {/* </Router> */}
       </div>
