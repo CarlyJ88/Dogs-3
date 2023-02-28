@@ -1,11 +1,11 @@
 import "./Dog.css";
-import Favourite from "./Favourite";
-import DogScore from "./DogScore";
+import Favourite from "./Favourite/Favourite";
+import DogScore from "./Rating/DogScore";
 import { getRating, getOverallRating, addRating } from "../services/service";
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../services/firebase";
-import OverallScore from "./OverallScore";
+import OverallScore from "./Rating/OverallScore";
 
 function Dog(props) {
   const [score, setScore] = useState(0);

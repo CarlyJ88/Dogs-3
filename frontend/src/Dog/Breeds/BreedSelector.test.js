@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import BreedSelector from "./BreedSelector";
 import userEvent from "@testing-library/user-event";
-import { getDogBreeds } from "../util/getDogImageUrl";
+import { getDogBreeds } from "../../util/getDogImageUrl";
 
 jest.mock("../util/getDogImageUrl");
 

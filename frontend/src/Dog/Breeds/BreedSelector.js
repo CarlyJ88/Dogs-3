@@ -1,4 +1,4 @@
-import { getDogBreeds } from "../util/getDogImageUrl";
+import { getDogBreeds } from "../../util/getDogImageUrl";
 import { useState, useEffect } from "react";
 import Breeds from "./Breeds";
 

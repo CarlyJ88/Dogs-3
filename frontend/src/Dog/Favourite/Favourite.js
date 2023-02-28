@@ -1,4 +1,4 @@
-import { ReactComponent as Heart } from "../icons/heart-icon.svg";
+import { ReactComponent as Heart } from "../../icons/heart-icon.svg";
 import "./Favourite.css";
 
 function Favourite(props) {

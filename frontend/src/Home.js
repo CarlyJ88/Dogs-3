@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 import Dog from "./Dog/Dog";
 import { getDogImageUrl, getRandomDogFromBreed } from "./util/getDogImageUrl";
-import BreedSelector from "./Dog/BreedSelector";
+import BreedSelector from "./Dog/Breeds/BreedSelector";
 
 function Home() {
   const [dogUrl, setDogUrl] = useState("");

@@ -1,4 +1,4 @@
-import { ReactComponent as Star } from "../icons/star-icon.svg";
+import { ReactComponent as Star } from "../../icons/star-icon.svg";
 import "./StarButton.css";
 
 function StarButton(props) {
